@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "club_name": "Тренажерный зал «ЮГ»",
+    "location": "г. Севастополь",
+    "currency": "RUB",
+    "price_valid_from": "2026-03-01",
+    "last_updated": "2026-03-17",
+    "version": "1.0"
+  },
+  "subscriptions": [
+    {
+      "id": "SUB001",
+      "name": "Разовая тренировка",
+      "duration_days": 1,
+      "price": 500,
+      "restrictions": "без ограничений",
+      "freeze_allowed": false,
+      "tags": ["single", "trial"]
+    },
+    {
+      "id": "SUB002",
+      "name": "Абонемент на 2 недели",
+      "duration_days": 14,
+      "price": 1800,
+      "restrictions": "без ограничений",
+      "freeze_allowed": false,
+      "tags": ["short_term"]
+    },
+    {
+      "id": "SUB003",
+      "name": "Абонемент школьный на месяц",
+      "duration_days": 30,
+      "price": 2600,
+      "restrictions": "действует до 18:00; требуется подтверждение статуса школьника",
+      "freeze_allowed": false,
+      "tags": ["student", "under18", "time_restricted"]
+    },
+    {
+      "id": "SUB004",
+      "name": "Абонемент студенческий на месяц",
+      "duration_days": 30,
+      "price": 2800,
+      "restrictions": "требуется подтверждение статуса студента",
+      "freeze_allowed": false,
+      "tags": ["student", "time_flexible"]
+    },
+    {
+      "id": "SUB005",
+      "name": "Абонемент на 1 месяц",
+      "duration_days": 30,
+      "price": 3100,
+      "restrictions": "без ограничений",
+      "freeze_allowed": false,
+      "tags": ["standard_month"]
+    },
+    {
+      "id": "SUB006",
+      "name": "Абонемент на 3 месяца",
+      "duration_days": 90,
+      "price": 8100,
+      "restrictions": "заморозка до 7 дней",
+      "freeze_allowed": true,
+      "freeze_days_max": 7,
+      "tags": ["quarter", "freeze_7d"]
+    },
+    {
+      "id": "SUB007",
+      "name": "Абонемент на 6 месяцев",
+      "duration_days": 180,
+      "price": 13500,
+      "restrictions": "заморозка до 14 дней",
+      "freeze_allowed": true,
+      "freeze_days_max": 14,
+      "tags": ["half_year", "freeze_14d"]
+    },
+    {
+      "id": "SUB008",
+      "name": "Абонемент на 12 месяцев",
+      "duration_days": 365,
+      "price": 22000,
+      "restrictions": "заморозка до 21 дня",
+      "freeze_allowed": true,
+      "freeze_days_max": 21,
+      "tags": ["year", "freeze_21d", "best_value"]
+    }
+  ],
+  "trainer_services": [
+    {
+      "id": "TR001",
+      "name": "Разовое персональное занятие",
+      "session_count": 1,
+      "price": 800,
+      "price_per_session": 800,
+      "validity_days": 1,
+      "tags": ["single_session"]
+    },
+    {
+      "id": "TR002",
+      "name": "Блок персональных занятий (8)",
+      "session_count": 8,
+      "price": 5700,
+      "price_per_session": 712.50,
+      "validity_days": 30,
+      "discount_percent": 11,
+      "tags": ["package_8", "discount"]
+    },
+    {
+      "id": "TR003",
+      "name": "Блок персональных занятий (12)",
+      "session_count": 12,
+      "price": 7500,
+      "price_per_session": 625,
+      "validity_days": 45,
+      "discount_percent": 22,
+      "tags": ["package_12", "discount", "best_value"]
+    },
+    {
+      "id": "TR004",
+      "name": "Тренерское сопровождение",
+      "session_count": 0,
+      "price": 5000,
+      "price_per_session": 0,
+      "validity_days": 30,
+      "description": "Составление программы + консультации, без присутствия тренера",
+      "tags": ["consulting", "program_only"]
+    }
+  ],
+  "business_rules": {
+    "discount_logic": [
+      "При покупке абонемента на 3/6/12 месяцев — цена за месяц снижается пропорционально",
+      "Блоки тренировок: скидка 11% за 8 занятий, 22% за 12 занятий",
+      "Студенческие/школьные тарифы требуют верификации статуса",
+      "Заморозка активируется только по заявке до окончания срока действия"
+    ],
+    "conflict_resolution": [
+      "Если клиент подходит под несколько категорий — предлагать наиболее выгодный вариант",
+      "При вопросе 'сколько стоит месяц' — уточнять тип абонемента перед выдачей цены",
+      "Тренерское сопровождение (5000 ₽) не включает персональные занятия"
+    ]
+  },
+  "nlp_synonyms": {
+    "абонемент": ["подписка", "карта", "доступ", "месячный", "на месяц"],
+    "тренер": ["персоналка", "инструктор", "занятия с тренером", "сопровождение"],
+    "заморозка": ["пауза", "приостановка", "перенос срока", "больничный", "отпуск"],
+    "студенческий": ["для студентов", "по студенческому", "со скидкой студенту"],
+    "похудение": ["сброс веса", "сушка", "жиросжигание", "коррекция фигуры"],
+    "набор массы": ["масса", "гипертрофия", "рост мышц", "набор"]
+  }
+}
